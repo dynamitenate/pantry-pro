@@ -10,7 +10,8 @@
     ]
   },
   "scripts": {
-    "build": "webpack -p --progress --config webpack.config.js"
+    "build": "webpack -p --progress --config webpack.config.js",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
