@@ -5,7 +5,11 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Card />
+                <Card
+                    style={{ fontSize: 20 }}
+                >
+                    Hello World!!!
+                </Card>
             </div>
         )
     }
