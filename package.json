@@ -12,6 +12,7 @@
   "scripts": {
     "build": "webpack -p --progress --config webpack.config.js",
     "start": "node server.js",
+    "dev": "webpack-dev-server --open",
     "heroku-postbuild": "webpack -p"
   },
   "keywords": [],
