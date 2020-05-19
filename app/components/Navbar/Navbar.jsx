@@ -7,7 +7,7 @@ class Navbar extends React.Component {
                 className={'navbar-default'}
                 style={{ width: '100%', height: 100 }}
             >
-                {PantryPro}
+                {"PantryPro"}
             </div>
         );
     }
