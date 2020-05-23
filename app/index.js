@@ -1,7 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
-
-const React = require('react');
-const ReactDOM = require('react-dom');
-require('./index.css');
+import './index.css';
 
 ReactDOM.render(<App />, document.getElementById('app'));
