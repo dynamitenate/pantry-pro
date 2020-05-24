@@ -25,7 +25,7 @@ body {
 }
 .button:hover {
     background-color: #adadad;
-    box-shadow: 0 0 6px rgba(66, 66, 66, 0.5);
+    box-shadow: 0 0 2px rgba(66, 66, 66, 0.2), 0 0 5px rgba(66, 66, 66, 0.5);
 }
 .button:active {
     background-color: #999999;
@@ -41,4 +41,19 @@ body {
 .shopping-list {
     background: #ff6a00;
     text-align: initial;
+}
+.shopping-list-add-button {
+    background-color: transparent;
+    background-image: url(/../assets/icons/add-black-48dp.svg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.shopping-list-add-button:hover {
+    background-color: rgba(111, 111, 111, 0.5);
+}
+.shopping-list-add-button:active {
+    background-color: rgba(111, 111, 111, 0.75);
 }
