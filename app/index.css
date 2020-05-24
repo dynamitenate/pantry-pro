@@ -30,6 +30,7 @@ body {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     padding: 0;
+    outline: none;
 }
 .button:hover {
     background-color: #adadad;
@@ -62,4 +63,11 @@ body {
 }
 .shopping-list-add-button:active {
     background-color: rgba(111, 111, 111, 0.75);
+}
+.shopping-list-input {
+    font-size: 20px;
+    margin-left: 15px;
+}
+.shopping-list-item {
+    padding: 5px 10px;
 }

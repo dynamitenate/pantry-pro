@@ -50,9 +50,9 @@ class ShoppingList extends React.Component {
                     >
                     </Button>
                     <Input
+                        className={'shopping-list-input'}
                         style={{
-                            marginLeft: 15,
-                            height: 40,
+                            height: 45,
                             width: 420
                         }}
                         value={this.state.input}
