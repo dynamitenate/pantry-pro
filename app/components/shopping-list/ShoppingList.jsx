@@ -23,7 +23,7 @@ class ShoppingList extends React.Component {
     render() {
         return (
             <Card
-                className={'shopping-list-default'}
+                className={'shopping-list'}
                 style={this.props.style}
             >
                 <ShoppingListAddButton

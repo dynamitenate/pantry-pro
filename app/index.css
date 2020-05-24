@@ -5,14 +5,14 @@ html {
 body {
     margin: 0px;
 }
-.card-default {
+.card {
     background: white;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.16), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
     display: inline-block;
 }
-.button-default {
+.button {
     background-color: #c9c9c9;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -23,14 +23,14 @@ body {
     cursor: pointer;
     outline: none;
 }
-.button-default:hover {
+.button:hover {
     background-color: #adadad;
     box-shadow: 0 0 6px rgba(66, 66, 66, 0.5);
 }
-.button-default:active {
+.button:active {
     background-color: #999999;
 }
-.navbar-default {
+.navbar {
     background: #ff6a00;
     color: white;
     box-shadow: 0 2px 4px -1px rgba(66, 66, 66, 0.2), 0 4px 5px 0 rgba(66, 66, 66, 0.14), 0 1px 10px 0 rgba(66, 66, 66, 0.12);
@@ -38,7 +38,7 @@ body {
     vertical-align: middle;
     font-size: 50px;
 }
-.shopping-list-default {
+.shopping-list {
     background: #ff6a00;
     text-align: initial;
 }
