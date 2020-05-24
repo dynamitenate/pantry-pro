@@ -5,16 +5,69 @@ html {
 body {
     margin: 0px;
 }
-.card-default {
+.card {
     background: white;
     padding: 15px;
-    border-radius: 3px;
+    border-radius: 10px;
     box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.16), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
     display: inline-block;
 }
-.navbar-default {
+.button {
+    background-color: #c9c9c9;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    padding: 5px 10px 5px 10px;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+    outline: none;
+}
+.input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px solid black;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    outline: none;
+}
+.button:hover {
+    background-color: #adadad;
+    box-shadow: 0 0 2px rgba(66, 66, 66, 0.2), 0 0 5px rgba(66, 66, 66, 0.5);
+}
+.button:active {
+    background-color: #999999;
+}
+.navbar {
     background: #ff6a00;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+    color: white;
+    box-shadow: 0 2px 4px -1px rgba(66, 66, 66, 0.2), 0 4px 5px 0 rgba(66, 66, 66, 0.14), 0 1px 10px 0 rgba(66, 66, 66, 0.12);
     text-align: center;
+    vertical-align: middle;
     font-size: 50px;
+}
+.shopping-list {
+    background: #ff6a00;
+    text-align: initial;
+}
+.shopping-list-add-button {
+    background-color: transparent;
+    background-image: url(/../assets/icons/add-black-48dp.svg);
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.shopping-list-add-button:hover {
+    background-color: rgba(111, 111, 111, 0.5);
+}
+.shopping-list-add-button:active {
+    background-color: rgba(111, 111, 111, 0.75);
+}
+.shopping-list-input {
+    font-size: 20px;
+    margin-left: 15px;
+}
+.shopping-list-item {
+    padding: 5px 10px;
 }
