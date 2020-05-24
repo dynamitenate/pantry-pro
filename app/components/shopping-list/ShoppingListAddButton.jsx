@@ -5,9 +5,9 @@ class ShoppingListAddButton extends React.Component {
     render() {
         return (
             <Button
+                className={'shopping-list-add-button'}
                 onClick={this.props.onClick}
             >
-                {'Click Me'}
             </Button>
         );
     }
