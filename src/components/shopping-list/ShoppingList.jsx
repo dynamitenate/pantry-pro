@@ -3,7 +3,6 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
-//import AddImage from '../../assets/icons/add-black-48dp.svg';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -44,7 +43,6 @@ class ShoppingList extends React.Component {
                     <Button
                         className={'shopping-list-add-button'}
                         style={{
-                            //backgroundImage: AddImage,//require('../../../assets/icons/add-black-48dp.svg'),
                             width: 50,
                             height: 50
                         }}
