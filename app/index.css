@@ -12,14 +12,33 @@ body {
     box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.16), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
     display: inline-block;
 }
+.button-default {
+    background-color: #c9c9c9;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    padding: 5px 10px 5px 10px;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+    outline: none;
+}
+.button-default:hover {
+    background-color: #adadad;
+    box-shadow: 0 0 6px rgba(66, 66, 66, 0.5);
+}
+.button-default:active {
+    background-color: #999999;
+}
 .navbar-default {
     background: #ff6a00;
     color: white;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px -1px rgba(66, 66, 66, 0.2), 0 4px 5px 0 rgba(66, 66, 66, 0.14), 0 1px 10px 0 rgba(66, 66, 66, 0.12);
     text-align: center;
     vertical-align: middle;
     font-size: 50px;
 }
 .shopping-list-default {
     background: #ff6a00;
+    text-align: initial;
 }
