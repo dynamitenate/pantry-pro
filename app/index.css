@@ -23,6 +23,9 @@ body {
     cursor: pointer;
     outline: none;
 }
+.input {
+    
+}
 .button:hover {
     background-color: #adadad;
     box-shadow: 0 0 2px rgba(66, 66, 66, 0.2), 0 0 5px rgba(66, 66, 66, 0.5);
