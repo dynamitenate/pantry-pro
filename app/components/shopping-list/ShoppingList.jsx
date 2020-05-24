@@ -8,7 +8,7 @@ class ShoppingList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            input: null,
+            input: '',
             items: []
         }
         this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
@@ -22,7 +22,7 @@ class ShoppingList extends React.Component {
     handleAddButtonClick() {
         this.setState(state => {
             let items = [...state.items, state.input];
-            return { ...state, items };
+            return { input: '' , items };
         });
     }
 
@@ -37,15 +37,29 @@ class ShoppingList extends React.Component {
                 className={'shopping-list'}
                 style={this.props.style}
             >
-                <Button
-                    className={'shopping-list-add-button'}
-                    onClick={this.handleAddButtonClick}
+                <div
+                    style={{ display: 'flex' }}
                 >
-                </Button>
-                <Input
-                    onChange={event => this.handleInputChange(event.target.value)}
-                    placeholder={'test'}
-                />
+                    <Button
+                        className={'shopping-list-add-button'}
+                        style={{
+                            width: 50,
+                            height: 50
+                        }}
+                        onClick={this.handleAddButtonClick}
+                    >
+                    </Button>
+                    <Input
+                        style={{
+                            marginLeft: 15,
+                            height: 40,
+                            width: 420
+                        }}
+                        value={this.state.input}
+                        onChange={event => this.handleInputChange(event.target.value)}
+                        placeholder={'Add item'}
+                    />
+                </div>
                 {this.state.items.map(item => <ShoppingListItem value={item}/>)}
             </Card>
         );
