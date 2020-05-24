@@ -4,7 +4,7 @@ class Navbar extends React.Component {
     render() {
         return (
             <div
-                className={'navbar-default'}
+                className={'navbar'}
                 style={{
                     width: '100%',
                     height: 100,
