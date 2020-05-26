@@ -2,3 +2,4 @@ node_modules/
 dist/
 .firebase/
 .vscode
+firebaseConfig.js
