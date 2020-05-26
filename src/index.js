@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Firebase from 'firebase/app';
 import App from './components/App.jsx';
 import './index.css';
-import firebaseConfig from '../firebaseConfig.js'
+const firebaseConfig = require('../firebaseConfig.json')
 
 // Connect to Firebase;
 Firebase.initializeApp(firebaseConfig);
