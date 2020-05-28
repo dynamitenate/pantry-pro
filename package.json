@@ -13,8 +13,7 @@
     "build": "webpack --progress --mode=development --config webpack.config.js",
     "build:prod": "webpack --progress --mode=production --config webpack.config.js",
     "start": "node server.js",
-    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js",
-    "heroku-postbuild": "webpack -p"
+    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
