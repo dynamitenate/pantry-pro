@@ -3,3 +3,4 @@ dist/
 .firebase/
 .vscode
 firebaseConfig.json
+spoonacular.json
