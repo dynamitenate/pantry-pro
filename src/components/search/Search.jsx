@@ -4,7 +4,7 @@ import SearchItem from './SearchItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
 
-class ShoppingList extends React.Component {
+class Search extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -20,6 +20,15 @@ class ShoppingList extends React.Component {
     }
 
     handleSearchButtonClick() {
+        let search_url = window.location.origin + '/api/food/products/search?query=' + this.state.input; 
+        fetch(search_url)
+            .then(res => res.json())
+            .then(json => {
+                this.setState({ items: json.products.map(product => product.title) });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     handleInputChange(input) {
@@ -53,7 +62,7 @@ class ShoppingList extends React.Component {
                         }}
                         value={this.state.input}
                         onChange={event => this.handleInputChange(event.target.value)}
-                        placeholder={'Add item'}
+                        placeholder={'Search for item...'}
                     />
                 </div>
                 {this.state.items.map(item => <SearchItem value={item}/>)}
@@ -62,4 +71,4 @@ class ShoppingList extends React.Component {
     }
 }
 
-export default ShoppingList;
+export default Search;
