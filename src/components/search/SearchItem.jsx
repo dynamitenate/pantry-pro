@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ShoppingListItem extends React.Component {
+class SearchItem extends React.Component {
     render() {
         return (
             <div
@@ -12,4 +12,4 @@ class ShoppingListItem extends React.Component {
     }
 }
 
-export default ShoppingListItem;
+export default SearchItem;
