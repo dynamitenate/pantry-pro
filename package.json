@@ -11,9 +11,10 @@
   },
   "scripts": {
     "build": "webpack -p --progress --config webpack.config.js",
-    "build-debug": "webpack -p --progress --config webpack_debug.config.js",
+    "build-debug": "webpack -p --progress --config webpack.debug.config.js",
     "start": "node server.js",
-    "watch": "webpack-dev-server --open",
+    "watch": "webpack-dev-server --open --config webpack.config.js",
+    "watch-debug": "webpack-dev-server --open --config webpack.debug.config.js",
     "heroku-postbuild": "webpack -p"
   },
   "keywords": [],
