@@ -13,7 +13,9 @@
     "build": "webpack --progress --mode=development --config webpack.config.js",
     "build:prod": "webpack --progress --mode=production --config webpack.config.js",
     "start": "node server.js",
-    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js"
+    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js",
+    "deploy": "webpack --progress --mode=development --config webpack.config.js && firebase deploy",
+    "deploy:prod": "webpack --progress --mode=production --config webpack.config.js && firebase deploy"
   },
   "keywords": [],
   "author": "",
