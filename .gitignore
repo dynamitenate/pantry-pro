@@ -2,5 +2,4 @@ node_modules/
 dist/
 .firebase/
 .vscode
-firebaseConfig.json
-spoonacular.json
+appSettings.json

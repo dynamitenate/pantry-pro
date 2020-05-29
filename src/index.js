@@ -5,8 +5,8 @@ import App from './components/App.jsx';
 import './index.css';
 
 // Connect to Firebase;
-Firebase.initializeApp(firebaseConfig);
-const firebaseConfig = require('../firebaseConfig.json')
+const appSettings = require('../appSettings.json')
+Firebase.initializeApp(appSettings.firebaseConfig);
 
 // Render root React component
 ReactDOM.render(
