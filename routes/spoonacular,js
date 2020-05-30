@@ -4,12 +4,11 @@ const fetch = require('node-fetch');
 const router = express.Router();
 
 const appSettings = require('../appSettings.json');
-const apiKey = appSettings.spoonacular.key;
+const apiKey = appSettings.spoonacular.apiKey;
+const apiAddress = appSettings.spoonacular.apiAddress;
 
 router.get('/food/search', (req, res) => {
-    console.log(req.params);
-    let [ path, query ] = req.url.split('?');
-    let spoon_url = `https://api.spoonacular.com/food/products/search?apiKey=${apiKey}&${query}`;
+    let spoon_url = `${apiAddress}/food/products/search?apiKey=${apiKey}&${req.query.query}`;
     fetch(spoon_url)
         .then(response => response.json())
         .then(json => res.json(json));
