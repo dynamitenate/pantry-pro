@@ -20,7 +20,7 @@ class Search extends React.Component {
     }
 
     handleSearchButtonClick() {
-        let search_url = window.location.origin + '/api/food/products/search?query=' + this.state.input; 
+        let search_url = window.location.origin + '/spoonacular/food/search?query=' + this.state.input;
         fetch(search_url)
             .then(res => res.json())
             .then(json => {
