@@ -3,6 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import { withFirebase } from '../firebase/firebase.js';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -16,13 +17,18 @@ class ShoppingList extends React.Component {
     }
 
     componentDidMount() {
-        console.log('mounted');
+        this.props.firebase.db.ref().child("test-global-list")
+            .once("value").then(snap => this.setState({ items: snap.val().items }));
     }
 
     handleAddButtonClick() {
         this.setState(state => {
             let items = [...state.items, state.input];
             return { input: '' , items };
+        }, () => {
+            const items = this.state.items;
+            this.props.firebase.db.ref().child("test-global-list")
+            .set({ items });
         });
     }
 
@@ -66,4 +72,4 @@ class ShoppingList extends React.Component {
     }
 }
 
-export default ShoppingList;
+export default withFirebase(ShoppingList);
