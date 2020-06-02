@@ -1,9 +1,13 @@
 import React from 'react';
 import Navbar from './navbar/Navbar.jsx';
 import ShoppingList from './shopping-list/ShoppingList.jsx';
-import Search from './search/Search.jsx'
+import Search from './search/Search.jsx';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
         return (
             <div>

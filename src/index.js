@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Firebase from 'firebase/app';
+import Firebase, { FirebaseContext } from './components/firebase/firebase.js';
 import App from './components/App.jsx';
 import './index.css';
 
-// Connect to Firebase;
-const appSettings = require('../appSettings.json')
-Firebase.initializeApp(appSettings.firebaseConfig);
-
 // Render root React component
 ReactDOM.render(
-    <App />,
+    <FirebaseContext.Provider value={new Firebase()}>
+        <App />
+    </FirebaseContext.Provider>,
     document.getElementById('app')
 );
