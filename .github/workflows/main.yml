@@ -7,16 +7,24 @@ on:
     branches: [ master ]
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build:
+    name: Build
     runs-on: [ ubuntu-latest ]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Install Dependencies
         run: npm install
+      - name: App Settings JSON
+        run: json='{"apiKey": "", "authDomain": "pantry-pro.firebaseapp.com", "tags_at_commit": "sometags", "project": "someproject", "current_date": "09/10/2014", "version": "someversion"}'
+        run: echo $json > appSettings.json
+        run: cat appSettings.json
       - name: Build Project
         run: npm run build:prod
+  deploy:
+    name: Deploy
+    runs-on: [ ubuntu-latest ]
+    steps:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
