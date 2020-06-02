@@ -16,9 +16,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: App Settings JSON
-        run: json='{"apiKey": "", "authDomain": "pantry-pro.firebaseapp.com", "tags_at_commit": "sometags", "project": "someproject", "current_date": "09/10/2014", "version": "someversion"}'
-        run: echo $json > appSettings.json
-        run: cat appSettings.json
+        run: 'echo "$APP_SETTINGS" > appSettings.json'
+        env:
+          APP_SETTINGS: ${{ secrets.APP_SETTINGS }}
       - name: Build Project
         run: npm run build:prod
   deploy:
