@@ -3,7 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
-import { withDatabase } from '../hoc/FirebaseContext.jsx';
+import { withDatabase } from '../../hoc/FirebaseContext.jsx';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -37,7 +37,6 @@ class ShoppingList extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <Card
                 className={'shopping-list'}

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Firebase, { FirebaseContext } from './components/hoc/FirebaseContext.jsx';
+import Firebase, { FirebaseContext } from './hoc/FirebaseContext.jsx';
 import App from './components/App.jsx';
 import './index.css';
 
