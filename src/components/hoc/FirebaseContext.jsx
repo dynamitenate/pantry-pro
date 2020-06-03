@@ -14,6 +14,7 @@ class Firebase {
 
 const FirebaseContext = React.createContext(null);
 
+// HOC to get entire firebase context
 export const withFirebase = Component => props => (
     <FirebaseContext.Consumer>
         {
@@ -21,5 +22,15 @@ export const withFirebase = Component => props => (
         }
     </FirebaseContext.Consumer>
 );
+
+// HOC to get just database from firebase context
+export const withDatabase = Component => props => (
+    <FirebaseContext.Consumer>
+        {
+            firebase => <Component {...props} db={firebase.db} />
+        }
+    </FirebaseContext.Consumer>
+);
+
 export { FirebaseContext }
 export default Firebase;

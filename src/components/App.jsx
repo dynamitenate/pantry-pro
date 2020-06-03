@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './navbar/Navbar.jsx';
 import ShoppingList from './shopping-list/ShoppingList.jsx';
 import Search from './search/Search.jsx';
-import { withFirebase } from './firebase/firebase.js';
 
 class App extends React.Component {
     render() {
@@ -40,4 +39,4 @@ class App extends React.Component {
     }
 }
 
-export default withFirebase(App);
+export default App;
