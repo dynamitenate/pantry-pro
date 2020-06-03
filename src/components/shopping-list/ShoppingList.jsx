@@ -37,7 +37,6 @@ class ShoppingList extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <Card
                 className={'shopping-list'}

@@ -15,10 +15,6 @@ class Search extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    componentDidMount() {
-        console.log('mounted');
-    }
-
     handleSearchButtonClick() {
         let search_url = window.location.origin + '/spoonacular/food/search?query=' + this.state.input;
         fetch(search_url)
@@ -36,7 +32,6 @@ class Search extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <Card
                 className={'shopping-list'}
