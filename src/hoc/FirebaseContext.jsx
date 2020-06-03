@@ -2,7 +2,7 @@ import React from 'react';
 import app from 'firebase/app';
 import 'firebase/database';
 
-const appSettings = require('../../../appSettings.json');
+const appSettings = require('../../appSettings.json');
 
 class Firebase {
     constructor() {
