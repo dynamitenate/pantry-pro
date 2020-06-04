@@ -1,41 +1,28 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Navigation from './Navigation.jsx';
 import Navbar from './navbar/Navbar.jsx';
 import ShoppingList from './shopping-list/ShoppingList.jsx';
 import Search from './search/Search.jsx';
+import * as ROUTES from '../constants/routes.js';
+import { LandingPage, ShoppingListPage, SearchPage } from './pages';
 
 class App extends React.Component {
     render() {
         return (
             <div>
                 <Navbar />
-                <div
-                    style={{
-                        paddingTop: 50,
-                        textAlign: 'center'
-                    }}
-                >
-                    <ShoppingList
-                        style={{
-                            width: 500,
-                            height: 500
-                        }}  
-                    />
-                </div>
-                <div
-                    style={{
-                        paddingTop: 50,
-                        textAlign: 'center'
-                    }}
-                >
-                    <Search
-                        style={{
-                            width: 500,
-                            height: 500
-                        }}  
-                    />
-                </div>
+                <Router>
+                    <div>
+                        <Navigation />
+                        <hr />
+                        <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                        <Route exact path={ROUTES.SHOPPING_LIST} component={ShoppingListPage} />
+                        <Route exact path={ROUTES.SEARCH} component={SearchPage} />
+                    </div>
+                </Router>
             </div>
-        )
+        );
     }
 }
 
