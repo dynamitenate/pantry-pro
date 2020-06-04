@@ -1,4 +1,6 @@
 import React from 'react';
+import NavbarLinks from './NavbarLinks.jsx';
+import * as ROUTES from '../../constants/routes.js';
 
 class Navbar extends React.Component {
     render() {
@@ -11,7 +13,18 @@ class Navbar extends React.Component {
                     lineHeight: '100px'
                 }}
             >
-                {"PantryPro"}
+                <div
+                    className={'navbar-title'}
+                >
+                    {"PantryPro"}
+                </div>
+                <NavbarLinks
+                    links={[
+                        { route: ROUTES.LANDING, label: "Landing" },
+                        { route: ROUTES.SHOPPING_LIST, label: "Shopping List" },
+                        { route: ROUTES.SEARCH, label: "Search" }
+                    ]}
+                />
             </div>
         );
     }
