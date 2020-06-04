@@ -7,14 +7,11 @@ class Navbar extends React.Component {
         return (
             <div
                 className={'navbar'}
-                style={{
-                    width: '100%',
-                    height: 100,
-                    lineHeight: '100px'
-                }}
+                style={{ width: '100%' }}
             >
                 <div
                     className={'navbar-title'}
+                    style={{ paddingTop: 10 }}
                 >
                     {"PantryPro"}
                 </div>

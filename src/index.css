@@ -49,6 +49,9 @@ body {
 .navbar-title {
     font-size: 50px;
 }
+.navbar-list {
+    text-align: left;
+}
 .shopping-list {
     background: #ff6a00;
     text-align: initial;
