@@ -8,10 +8,11 @@ const apiKey = appSettings.spoonacular.apiKey;
 const apiAddress = appSettings.spoonacular.apiAddress;
 
 router.get('/food/search', (req, res) => {
-    let spoon_url = `${apiAddress}/food/products/search?apiKey=${apiKey}&${req.query.query}`;
+    let spoon_url = `${apiAddress}/food/products/search?apiKey=${apiKey}&query=${req.query.query}`;
     fetch(spoon_url)
         .then(response => response.json())
-        .then(json => res.json(json));
+        .then(json => res.json(json))
+        .catch(error => console.log(error));
 })
 
 module.exports = router;
