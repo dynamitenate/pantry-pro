@@ -3,6 +3,7 @@ const app = express();
 
 // Require routes in ./routes
 app.use('/spoonacular', require('./routes/spoonacular.js'));
+app.use('/data', require('./routes/data.js'));
 
 // Setup home directory
 app.use(express.static(__dirname + '/dist'));
