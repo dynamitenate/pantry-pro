@@ -9,20 +9,22 @@ const apiKey = appSettings.supabase.apiKey;
 const apiAddress = appSettings.supabase.apiAddress;
 const supabase = createClient(apiAddress, apiKey);
 
-const getShoppingList = async () => {
-    try {
-        let items = await supabase
-            .from('shopping_list')
-            .select('product_name');
-        return items;
-    } catch (error) {
-        console.log('Error: ', error);
-    }
-}
-
 router.get('/list', (req, res) => {
-    getShoppingList()
-        .then(items => res.json(items.body));
+    supabase
+        .from('shopping_list')
+        .select('product_name')
+        .then(items => res.json(items.body))
+        .catch(error => console.log('Error retreiveing shopping list items: ', error));
+})
+
+router.post('/list', (req, res) => {
+    supabase
+        .from('shopping_list')
+        .insert([
+            {'product_name': req.body.product_name}
+        ])
+        .then(data => res.json(data.body))
+        .catch(error => console.log('Error adding shopping list items: ', error));
 })
 
 module.exports = router;
