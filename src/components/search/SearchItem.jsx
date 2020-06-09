@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '../common/Button.jsx';
-import { withDatabase } from '../../hoc/FirebaseContext.jsx';
 
 class SearchItem extends React.Component {
 
@@ -10,12 +9,13 @@ class SearchItem extends React.Component {
     }
 
     handleAddButtonClick() {
-        let table = this.props.db.ref().child("test-global-list");
-        table.once("value").then(snap => {
-            let items = snap.val().items;
-            items.push(this.props.value);
-            table.set({ items });
-        });
+        fetch(window.location.origin + '/data/list', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ product_name: this.props.value })
+        })
     }
 
     render() {
@@ -38,4 +38,4 @@ class SearchItem extends React.Component {
     }
 }
 
-export default withDatabase(SearchItem);
+export default SearchItem;
