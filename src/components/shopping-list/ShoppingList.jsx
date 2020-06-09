@@ -3,6 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import { getShoppingListData, addShoppingListData } from '../../api/shoppingList.js';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -16,29 +17,21 @@ class ShoppingList extends React.Component {
     }
 
     componentDidMount() {
-        fetch(window.location.origin + '/data/list')
-            .then(res => res.json())
-            .then(json => {
-                let names = json.map(item => item.product_name);
-                this.setState({ items: names });
+        getShoppingListData()
+            .then(res => {
+                let items = res.json().map(item => item.product_name);
+                this.setState({ items });
             });
     }
 
     handleAddButtonClick() {
-        fetch(window.location.origin + '/data/list', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ product_name: this.state.input })
-        })
-            .then(res => res.json())
-            .then(data => {
+        addShoppingListData(this.state.input)
+            .then(res => {
                 this.setState(state => {
-                    let items = [...state.items, data[0].product_name];
+                    let items = [...state.items, res.json()[0].product_name];
                     return { input: '' , items };
                 });
-            })
+            });
     }
 
     handleInputChange(input) {
