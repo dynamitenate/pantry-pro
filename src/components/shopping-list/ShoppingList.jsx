@@ -3,7 +3,6 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
-import { withDatabase } from '../../hoc/FirebaseContext.jsx';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -17,19 +16,29 @@ class ShoppingList extends React.Component {
     }
 
     componentDidMount() {
-        this.props.db.ref().child("test-global-list")
-            .once("value").then(snap => this.setState({ items: snap.val().items }));
+        fetch(window.location.origin + '/data/list')
+            .then(res => res.json())
+            .then(json => {
+                let names = json.map(item => item.product_name);
+                this.setState({ items: names });
+            });
     }
 
     handleAddButtonClick() {
-        this.setState(state => {
-            let items = [...state.items, state.input];
-            return { input: '' , items };
-        }, () => {
-            const items = this.state.items;
-            this.props.db.ref().child("test-global-list")
-            .set({ items });
-        });
+        fetch(window.location.origin + '/data/list', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ product_name: this.state.input })
+        })
+            .then(res => res.json())
+            .then(data => {
+                this.setState(state => {
+                    let items = [...state.items, data[0].product_name];
+                    return { input: '' , items };
+                });
+            })
     }
 
     handleInputChange(input) {
@@ -71,4 +80,4 @@ class ShoppingList extends React.Component {
     }
 }
 
-export default withDatabase(ShoppingList);
+export default ShoppingList;
