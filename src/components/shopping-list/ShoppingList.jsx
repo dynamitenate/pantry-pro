@@ -100,9 +100,9 @@ class ShoppingList extends React.Component {
                         />
                     </div>
                     <div
+                        className={'scrollbox'}
                         style={{
                             flex: '1 1 auto',
-                            overflowY: 'auto',
                             marginTop: 15
                         }}
                     >
