@@ -3,6 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import './ShoppingList.css';
 
 class ShoppingList extends React.Component {
     constructor(props){
@@ -13,68 +14,101 @@ class ShoppingList extends React.Component {
         }
         this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
     }
 
     componentDidMount() {
-        fetch(window.location.origin + '/data/list')
-            .then(res => res.json())
-            .then(json => {
-                let names = json.map(item => item.product_name);
-                this.setState({ items: names });
-            });
+        // fetch(window.location.origin + '/data/list')
+        //     .then(res => res.json())
+        //     .then(json => {
+        //         let names = json.map(item => item.product_name);
+        //         this.setState({ items: names });
+        //     });
     }
 
     handleAddButtonClick() {
-        fetch(window.location.origin + '/data/list', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ product_name: this.state.input })
-        })
-            .then(res => res.json())
-            .then(data => {
-                this.setState(state => {
-                    let items = [...state.items, data[0].product_name];
-                    return { input: '' , items };
-                });
-            })
+        // fetch(window.location.origin + '/data/list', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ product_name: this.state.input })
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         this.setState(state => {
+        //             let items = [...state.items, data[0].product_name];
+        //             return { input: '' , items };
+        //         });
+        //     })
+        this.setState(state => {
+            let items = [...state.items, state.input];
+            return { input: '' , items };
+        });
     }
 
-    handleInputChange(input) {
+    handleInputChange(event) {
+        let input = event.target.value;
         this.setState({ input });
     }
 
+    handleInputKeyDown(event) {
+        if (event.key === "Enter") {
+            this.handleAddButtonClick();
+        }
+    }
+
     render() {
+        console.log(this.state);
         return (
             <Card
                 className={'shopping-list'}
                 style={this.props.style}
             >
                 <div
-                    style={{ display: 'flex' }}
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'column',
+                        height: '100%'
+                    }}
                 >
-                    <Button
-                        className={'shopping-list-add-button'}
+                    <div
                         style={{
-                            width: 50,
-                            height: 50
+                            display: 'flex',
+                            flex: '0 1 50px'
                         }}
-                        onClick={this.handleAddButtonClick}
                     >
-                    </Button>
-                    <Input
-                        className={'shopping-list-input'}
+                        <Button
+                            className={'shopping-list-add-button'}
+                            style={{
+                                width: 50,
+                                height: 50
+                            }}
+                            onClick={this.handleAddButtonClick}
+                        >
+                        </Button>
+                        <Input
+                            className={'shopping-list-input'}
+                            style={{
+                                height: 45,
+                                width: 420
+                            }}
+                            value={this.state.input}
+                            placeholder={'Add item'}
+                            onChange={event => this.handleInputChange(event)}
+                            onKeyDown={event => this.handleInputKeyDown(event)}
+                        />
+                    </div>
+                    <div
+                        className={'scrollbox'}
                         style={{
-                            height: 45,
-                            width: 420
+                            flex: '1 1 auto',
+                            marginTop: 15
                         }}
-                        value={this.state.input}
-                        onChange={event => this.handleInputChange(event.target.value)}
-                        placeholder={'Add item'}
-                    />
+                    >
+                        {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item}/>)}
+                    </div>
                 </div>
-                {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item}/>)}
             </Card>
         );
     }

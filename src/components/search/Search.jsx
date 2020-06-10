@@ -3,6 +3,7 @@ import Card from '../common/Card.jsx';
 import SearchItem from './SearchItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import './Search.css';
 
 class Search extends React.Component {
     constructor(props){
@@ -34,14 +35,14 @@ class Search extends React.Component {
     render() {
         return (
             <Card
-                className={'shopping-list'}
+                className={'search'}
                 style={this.props.style}
             >
                 <div
                     style={{ display: 'flex' }}
                 >
                     <Button
-                        className={'shopping-list-add-button'}
+                        className={'search-add-button'}
                         style={{
                             width: 50,
                             height: 50
@@ -50,7 +51,7 @@ class Search extends React.Component {
                     >
                     </Button>
                     <Input
-                        className={'shopping-list-input'}
+                        className={'search-input'}
                         style={{
                             height: 45,
                             width: 420

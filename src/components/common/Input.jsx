@@ -1,4 +1,5 @@
 import React from 'react';
+import './Common.css';
 
 class Input extends React.Component {
     render() {
@@ -7,8 +8,9 @@ class Input extends React.Component {
                 className={this.props.className ? `input ${this.props.className}` : 'input'}
                 style={this.props.style}
                 value={this.props.value}
-                onChange={event => this.props.onChange(event)}
                 placeholder={this.props.placeholder}
+                onChange={event => this.props.onChange(event)}
+                onKeyDown={event => this.props.onKeyDown(event)}
             />
         )
     }

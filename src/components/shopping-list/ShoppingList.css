@@ -1,0 +1,23 @@
+.shopping-list {
+    text-align: initial;
+}
+.shopping-list-add-button {
+    background-color: transparent;
+    background-image: url(../../assets/icons/add-black-48dp.svg);
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.shopping-list-add-button:hover {
+    background-color: rgba(111, 111, 111, 0.5);
+}
+.shopping-list-add-button:active {
+    background-color: rgba(111, 111, 111, 0.75);
+}
+.shopping-list-input {
+    font-size: 20px;
+    margin-left: 15px;
+}
+.shopping-list-item {
+    padding: 5px 10px;
+}
