@@ -89,7 +89,7 @@ class ShoppingList extends React.Component {
                         <Input
                             className={'shopping-list-input'}
                             style={{
-                                height: 45,
+                                height: 47,
                                 width: 420
                             }}
                             value={this.state.input}
