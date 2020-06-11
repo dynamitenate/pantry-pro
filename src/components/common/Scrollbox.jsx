@@ -14,13 +14,7 @@ class Scrollbox extends React.Component {
     }
 
     componentDidMount() {
-        let element = this.scrollboxRef.current;
-        this.setState({
-            top: (element.scrollTop === 0),
-            bottom: (element.scrollHeight - element.scrollTop === element.clientHeight),
-            left: (element.scrollLeft === 0),
-            right: (element.scrollWidth - element.scrollLeft === element.clientWidth)
-        });
+        this.updateScrollState();
     }
 
     getBoxShadow() {
@@ -32,7 +26,7 @@ class Scrollbox extends React.Component {
         );
     }
 
-    handleScroll(event) {
+    updateScrollState() {
         let element = this.scrollboxRef.current;
         this.setState({
             top: (element.scrollTop === 0),
@@ -40,11 +34,14 @@ class Scrollbox extends React.Component {
             left: (element.scrollLeft === 0),
             right: (element.scrollWidth - element.scrollLeft === element.clientWidth)
         });
+    }
+
+    handleScroll(event) {
+        this.updateScrollState();
         this.props.onScroll && this.props.onScroll(event);
     }
 
     render() {
-        console.log(this.state);
         return (
             <div
                 ref={this.scrollboxRef}
