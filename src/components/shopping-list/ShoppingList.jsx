@@ -41,7 +41,13 @@ class ShoppingList extends React.Component {
         //     })
         if (this.state.input) {
             this.setState(state => {
-                let items = [...state.items, state.input];
+                let items = [
+                    ...state.items,
+                    {
+                        value: state.input,
+                        checked: false
+                    }
+                ];
                 return { input: "", items };
             });
         }
@@ -56,6 +62,13 @@ class ShoppingList extends React.Component {
         if (event.key === "Enter") {
             this.handleAddButtonClick();
         }
+    }
+
+    handleItemCheckedOff(index) {
+        this.setState(state => {
+            state.items[index].checked = true;
+            return state;
+        });
     }
 
     render() {
@@ -104,7 +117,7 @@ class ShoppingList extends React.Component {
                             marginTop: 15
                         }}
                     >
-                        {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item}/>)}
+                        {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
                     </Scrollbox>
                 </div>
             </Card>
