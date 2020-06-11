@@ -36,3 +36,7 @@
 .input::placeholder {
     color: #c1c1c1;
 }
+.scrollbox {
+    overflow: auto;
+    /*transition: box-shadow 0.15s ease;*/
+}

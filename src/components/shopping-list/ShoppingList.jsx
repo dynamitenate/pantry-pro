@@ -3,18 +3,16 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import Scrollbox from '../common/Scrollbox.jsx';
 import './ShoppingList.css';
 
 class ShoppingList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            input: '',
-            items: []
+            input: "",
+            items: ["Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple"]
         }
-        this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
     }
 
     componentDidMount() {
@@ -41,10 +39,12 @@ class ShoppingList extends React.Component {
         //             return { input: '' , items };
         //         });
         //     })
-        this.setState(state => {
-            let items = [...state.items, state.input];
-            return { input: '' , items };
-        });
+        if (this.state.input) {
+            this.setState(state => {
+                let items = [...state.items, state.input];
+                return { input: "", items };
+            });
+        }
     }
 
     handleInputChange(event) {
@@ -59,7 +59,6 @@ class ShoppingList extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <Card
                 className={'shopping-list'}
@@ -84,7 +83,7 @@ class ShoppingList extends React.Component {
                                 width: 50,
                                 height: 50
                             }}
-                            onClick={this.handleAddButtonClick}
+                            onClick={() => this.handleAddButtonClick()}
                         >
                         </Button>
                         <Input
@@ -99,15 +98,14 @@ class ShoppingList extends React.Component {
                             onKeyDown={event => this.handleInputKeyDown(event)}
                         />
                     </div>
-                    <div
-                        className={'scrollbox'}
+                    <Scrollbox
                         style={{
                             flex: '1 1 auto',
                             marginTop: 15
                         }}
                     >
                         {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item}/>)}
-                    </div>
+                    </Scrollbox>
                 </div>
             </Card>
         );
