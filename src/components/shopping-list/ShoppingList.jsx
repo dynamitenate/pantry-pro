@@ -11,7 +11,7 @@ class ShoppingList extends React.Component {
         super(props);
         this.state = {
             input: "",
-            items: ["Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple", "Apple"]
+            items: []
         }
     }
 

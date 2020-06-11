@@ -24,28 +24,12 @@ class Scrollbox extends React.Component {
     }
 
     getBoxShadow() {
-        let boxShadow = [];
-        let isEmpty = true;
-        if (!this.state.top) {
-            boxShadow.push("inset 0px 11px 8px -10px grey");
-            isEmpty = false;
-        }
-        if (!this.state.bottom) {
-            !isEmpty && boxShadow.push(",");
-            boxShadow.push("inset 0px -11px 8px -10px grey");
-            isEmpty = false;
-        }
-        if (!this.state.left) {
-            !isEmpty && boxShadow.push(",");
-            boxShadow.push("inset 11px 0px 8px -10px grey");
-            isEmpty = false;
-        }
-        if (!this.state.left) {
-            !isEmpty && boxShadow.push(",");
-            boxShadow.push("inset -11px 0px 8px -10px grey");
-            isEmpty = false;
-        }
-        return boxShadow.join("");
+        return (
+            `inset 0px 11px 8px -10px ${!this.state.top ? "grey" : "transparent"},
+            inset 0px -11px 8px -10px ${!this.state.bottom ? "grey" : "transparent"},
+            inset 11px 0px 8px -10px ${!this.state.left ? "grey" : "transparent"},
+            inset -11px 0px 8px -10px ${!this.state.right ? "grey" : "transparent"}`
+        );
     }
 
     handleScroll(event) {
@@ -56,14 +40,7 @@ class Scrollbox extends React.Component {
             left: (element.scrollLeft === 0),
             right: (element.scrollWidth - element.scrollLeft === element.clientWidth)
         });
-        // let element = event.target;
-        // this.setState({
-        //     top: (element.scrollTop === 0),
-        //     bottom: (element.scrollHeight - element.scrollTop === element.clientHeight),
-        //     left: (element.scrollLeft === 0),
-        //     right: (element.scrollWidth - element.scrollLeft === element.clientWidth)
-        // });
-        this.props.onScroll && this.props.onScroll();
+        this.props.onScroll && this.props.onScroll(event);
     }
 
     render() {

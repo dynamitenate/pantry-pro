@@ -38,5 +38,5 @@
 }
 .scrollbox {
     overflow: auto;
-    /*transition: box-shadow 0.15s ease;*/
+    transition: box-shadow 0.1s ease;
 }
