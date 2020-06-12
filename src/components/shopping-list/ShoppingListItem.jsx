@@ -19,14 +19,19 @@ class ShoppingListItem extends React.Component {
         return false
     }
 
+    getTransform() {
+        let transform = `translateX(${this.state.hover ? "0" : "-40"})`;
+        console.log(transform);
+        return transform;
+    }
+
     render() {
         return (
             <div
                 className={'shopping-list-item'}
                 style={{
                     display: 'flex',
-                    position: 'relative',
-                    padding: '10px 0px'
+                    padding: 10
                 }}
                 onMouseEnter={() => this.setState({ hover: true })}
                 onMouseLeave={() => this.setState({ hover: false })}
@@ -44,10 +49,9 @@ class ShoppingListItem extends React.Component {
                 <div
                     className={`shopping-list-item-content ${this.props.checked ? 'shopping-list-item-content-checked' : undefined}`}
                     style={{
-                        position: 'absolute',
-                        left: this.state.hover ? 30 : 0,
                         paddingLeft: 10,
-                        minWidth: 30
+                        minWidth: 40,
+                        transform: this.getTransform()
                     }}
                 >
                     {this.props.value}
