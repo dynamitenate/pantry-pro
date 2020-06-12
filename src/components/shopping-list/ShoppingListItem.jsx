@@ -19,12 +19,6 @@ class ShoppingListItem extends React.Component {
         return false
     }
 
-    getTransform() {
-        let transform = `translateX(${this.state.hover ? "0" : "-40"})`;
-        console.log(transform);
-        return transform;
-    }
-
     render() {
         return (
             <div
@@ -51,7 +45,7 @@ class ShoppingListItem extends React.Component {
                     style={{
                         paddingLeft: 10,
                         minWidth: 40,
-                        transform: this.getTransform()
+                        transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
                     }}
                 >
                     {this.props.value}

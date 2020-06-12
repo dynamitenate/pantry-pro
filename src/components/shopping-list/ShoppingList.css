@@ -21,10 +21,10 @@
 }
 .shopping-list-item {
     font-size: 22px;
+    background-color: white;
 }
 .shopping-list-item:hover {
-    background-color: #efefef;
-    transition: background-color 0.25s ease;
+    background-color: #efefef !important;
 }
 .shopping-list-item-check-button {
     background-color: transparent;
@@ -42,7 +42,7 @@
 }
 .shopping-list-item-content {
     background-color: inherit;
-    transition: left 0.5s ease;
+    transition: transform 0.5s ease;
 }
 .shopping-list-item-content-checked {
     color: #c1c1c1;
