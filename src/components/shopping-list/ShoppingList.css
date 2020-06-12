@@ -9,15 +9,43 @@
     background-repeat: no-repeat;
 }
 .shopping-list-add-button:hover {
-    background-color: rgba(111, 111, 111, 0.5);
+    background-color: rgba(111, 111, 111, 0.25);
+    box-shadow: none;
 }
 .shopping-list-add-button:active {
-    background-color: rgba(111, 111, 111, 0.75);
+    background-color: rgba(111, 111, 111, 0.5);
 }
 .shopping-list-input {
     font-size: 20px;
     margin-left: 15px;
 }
 .shopping-list-item {
-    padding: 5px 10px;
+    background-color: white;
+    font-size: 22px;
+}
+.shopping-list-item:hover {
+    background-color: #efefef;
+    transition: background-color 0.25s ease;
+}
+.shopping-list-item-check-button {
+    background-color: transparent;
+    background-image: url(../../assets/icons/done-black-48dp.svg);
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.shopping-list-item-check-button:hover {
+    background-color: rgba(111, 111, 111, 0.25);
+    box-shadow: none;
+}
+.shopping-list-item-check-button:active {
+    background-color: rgba(111, 111, 111, 0.5);
+}
+.shopping-list-item-content {
+    background-color: inherit;
+    transition: left 0.5s ease;
+}
+.shopping-list-item-content-checked {
+    color: #c1c1c1;
+    text-decoration: line-through;
 }
