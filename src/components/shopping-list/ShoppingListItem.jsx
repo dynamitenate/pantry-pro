@@ -24,6 +24,7 @@ class ShoppingListItem extends React.Component {
             <div
                 className={'shopping-list-item'}
                 style={{
+                    height: 35,
                     padding: 10,
                     whiteSpace: 'nowrap'
                 }}
@@ -35,7 +36,8 @@ class ShoppingListItem extends React.Component {
                     style={{
                         width: 30,
                         height: 30,
-                        marginRight: 10
+                        marginRight: 10,
+                        transform: 'translateY(-8px)'
                     }}
                     onClick={() => this.props.onCheckClick()}
                 >  
@@ -45,7 +47,8 @@ class ShoppingListItem extends React.Component {
                     style={{
                         display: 'inline-block',
                         paddingLeft: 10,
-                        width: '100%',
+                        height: '100%',
+                        width: 'calc(100% - 10px)',
                         transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
                     }}
                 >

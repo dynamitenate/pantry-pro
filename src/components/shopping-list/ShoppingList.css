@@ -22,6 +22,7 @@
 .shopping-list-item {
     font-size: 22px;
     background-color: white;
+    border-radius: 10px;
 }
 .shopping-list-item:hover {
     background-color: #efefef !important;
