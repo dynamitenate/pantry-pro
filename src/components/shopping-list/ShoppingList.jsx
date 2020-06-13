@@ -114,7 +114,8 @@ class ShoppingList extends React.Component {
                     <Scrollbox
                         style={{
                             flex: '1 1 auto',
-                            marginTop: 15
+                            marginTop: 15,
+                            overflow: 'hidden auto'
                         }}
                     >
                         {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
