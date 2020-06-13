@@ -87,7 +87,8 @@ class ShoppingList extends React.Component {
                     <div
                         style={{
                             display: 'flex',
-                            flex: '0 1 50px'
+                            flex: '0 1 50px',
+                            padding: '0px 15px'
                         }}
                     >
                         <Button
@@ -117,8 +118,11 @@ class ShoppingList extends React.Component {
                             marginTop: 15,
                             overflow: 'hidden auto'
                         }}
+                        suppressInsetShadows
                     >
-                        {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
+                        <div style={{ padding: '0px 10px' }}>
+                            {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
+                        </div>
                     </Scrollbox>
                 </div>
             </Card>

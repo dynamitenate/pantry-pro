@@ -19,17 +19,19 @@ class Scrollbox extends React.Component {
 
     getClasses() {
         let classString = ["scrollbox "];
-        if (!this.state.top) {
-            classString.push("scrollbox-border-top ");
-        }
-        if (!this.state.bottom) {
-            classString.push("scrollbox-border-bottom ");
-        }
-        if (!this.state.left) {
-            classString.push("scrollbox-border-left ");
-        }
-        if (!this.state.right) {
-            classString.push("scrollbox-border-right ");
+        if (!this.props.suppressInsetShadows) {
+            if (!this.state.top) {
+                classString.push("scrollbox-border-top ");
+            }
+            if (!this.state.bottom) {
+                classString.push("scrollbox-border-bottom ");
+            }
+            if (!this.state.left) {
+                classString.push("scrollbox-border-left ");
+            }
+            if (!this.state.right) {
+                classString.push("scrollbox-border-right ");
+            }
         }
         classString.push(this.props.className ?? "");
         return classString.join("");

@@ -26,7 +26,8 @@ class ShoppingListItem extends React.Component {
                 style={{
                     height: 35,
                     padding: 10,
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden'
                 }}
                 onMouseEnter={() => this.setState({ hover: true })}
                 onMouseLeave={() => this.setState({ hover: false })}
