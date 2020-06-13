@@ -104,7 +104,8 @@ class ShoppingList extends React.Component {
                             className={'shopping-list-input'}
                             style={{
                                 height: 47,
-                                width: 420
+                                width: 420,
+                                margin: '0px 15px'
                             }}
                             value={this.state.input}
                             placeholder={'Add item'}
