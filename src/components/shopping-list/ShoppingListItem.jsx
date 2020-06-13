@@ -24,8 +24,8 @@ class ShoppingListItem extends React.Component {
             <div
                 className={'shopping-list-item'}
                 style={{
-                    display: 'flex',
-                    padding: 10
+                    padding: 10,
+                    whiteSpace: 'nowrap'
                 }}
                 onMouseEnter={() => this.setState({ hover: true })}
                 onMouseLeave={() => this.setState({ hover: false })}
@@ -43,8 +43,9 @@ class ShoppingListItem extends React.Component {
                 <div
                     className={`shopping-list-item-content ${this.props.checked ? 'shopping-list-item-content-checked' : undefined}`}
                     style={{
+                        display: 'inline-block',
                         paddingLeft: 10,
-                        minWidth: 40,
+                        width: '100%',
                         transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
                     }}
                 >
