@@ -17,13 +17,22 @@ class Scrollbox extends React.Component {
         this.updateScrollState();
     }
 
-    getBoxShadow() {
-        return (
-            `inset 0px 11px 8px -10px ${!this.state.top ? "grey" : "transparent"},
-            inset 0px -11px 8px -10px ${!this.state.bottom ? "grey" : "transparent"},
-            inset 11px 0px 8px -10px ${!this.state.left ? "grey" : "transparent"},
-            inset -11px 0px 8px -10px ${!this.state.right ? "grey" : "transparent"}`
-        );
+    getClasses() {
+        let classString = ["scrollbox "];
+        if (!this.state.top) {
+            classString.push("scrollbox-border-top ");
+        }
+        if (!this.state.bottom) {
+            classString.push("scrollbox-border-bottom ");
+        }
+        if (!this.state.left) {
+            classString.push("scrollbox-border-left ");
+        }
+        if (!this.state.right) {
+            classString.push("scrollbox-border-right ");
+        }
+        classString.push(this.props.className ?? "");
+        return classString.join("");
     }
 
     updateScrollState() {
@@ -45,11 +54,8 @@ class Scrollbox extends React.Component {
         return (
             <div
                 ref={this.scrollboxRef}
-                className={this.props.className ? `scrollbox ${this.props.className}` : 'scrollbox'}
-                style={{
-                    boxShadow: this.getBoxShadow(),
-                    ...this.props.style
-                }}
+                className={this.getClasses()}
+                style={this.props.style}
                 onScroll={(event) => this.handleScroll(event)}
             >
                 {this.props.children}
