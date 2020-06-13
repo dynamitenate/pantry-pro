@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (options) => {
     let isProduction;
@@ -15,7 +14,8 @@ module.exports = (options) => {
         entry: __dirname + '/src/index.js',
         output: {
             path: __dirname + '/dist',
-            filename: 'bundle.js'
+            filename: 'bundle.js',
+            publicPath: '/'
         },
         module: {
             rules: [
@@ -40,8 +40,10 @@ module.exports = (options) => {
             ]
         },
         devtool: isProduction ? undefined : 'source-map',
+        devServer: {
+            historyApiFallback: true
+        },
         plugins: [
-            new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: __dirname + '/src/index.html'
             })

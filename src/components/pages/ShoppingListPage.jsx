@@ -13,7 +13,8 @@ class ShoppingListPage extends React.Component {
                 <ShoppingList
                     style={{
                         width: 500,
-                        height: 500
+                        height: 500,
+                        padding: '15px 0px'
                     }}  
                 />
             </div>

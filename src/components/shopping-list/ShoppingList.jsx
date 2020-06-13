@@ -4,16 +4,16 @@ import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
 import { getShoppingListData, addShoppingListData } from '../../api/shoppingList.js';
+import Scrollbox from '../common/Scrollbox.jsx';
+import './ShoppingList.css';
 
 class ShoppingList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            input: '',
+            input: "",
             items: []
         }
-        this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
@@ -32,10 +32,36 @@ class ShoppingList extends React.Component {
                     return { input: '' , items };
                 });
             });
+        if (this.state.input) {
+            this.setState(state => {
+                let items = [
+                    ...state.items,
+                    {
+                        value: state.input,
+                        checked: false
+                    }
+                ];
+                return { input: "", items };
+            });
+        }
     }
 
-    handleInputChange(input) {
+    handleInputChange(event) {
+        let input = event.target.value;
         this.setState({ input });
+    }
+
+    handleInputKeyDown(event) {
+        if (event.key === "Enter") {
+            this.handleAddButtonClick();
+        }
+    }
+
+    handleItemCheckedOff(index) {
+        this.setState(state => {
+            state.items[index].checked = true;
+            return state;
+        });
     }
 
     render() {
@@ -45,29 +71,54 @@ class ShoppingList extends React.Component {
                 style={this.props.style}
             >
                 <div
-                    style={{ display: 'flex' }}
+                    style={{
+                        display: 'flex',
+                        flexFlow: 'column',
+                        height: '100%'
+                    }}
                 >
-                    <Button
-                        className={'shopping-list-add-button'}
+                    <div
                         style={{
-                            width: 50,
-                            height: 50
+                            display: 'flex',
+                            flex: '0 1 50px',
+                            padding: '0px 15px'
                         }}
-                        onClick={this.handleAddButtonClick}
                     >
-                    </Button>
-                    <Input
-                        className={'shopping-list-input'}
+                        <Button
+                            className={'shopping-list-add-button'}
+                            style={{
+                                width: 50,
+                                height: 50
+                            }}
+                            onClick={() => this.handleAddButtonClick()}
+                        >
+                        </Button>
+                        <Input
+                            className={'shopping-list-input'}
+                            style={{
+                                height: 47,
+                                width: 420,
+                                margin: '0px 15px'
+                            }}
+                            value={this.state.input}
+                            placeholder={'Add item'}
+                            onChange={event => this.handleInputChange(event)}
+                            onKeyDown={event => this.handleInputKeyDown(event)}
+                        />
+                    </div>
+                    <Scrollbox
                         style={{
-                            height: 45,
-                            width: 420
+                            flex: '1 1 auto',
+                            marginTop: 15,
+                            overflow: 'hidden auto'
                         }}
-                        value={this.state.input}
-                        onChange={event => this.handleInputChange(event.target.value)}
-                        placeholder={'Add item'}
-                    />
+                        suppressInsetShadows
+                    >
+                        <div style={{ padding: '0px 10px' }}>
+                            {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
+                        </div>
+                    </Scrollbox>
                 </div>
-                {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item}/>)}
             </Card>
         );
     }

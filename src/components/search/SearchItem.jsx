@@ -21,10 +21,10 @@ class SearchItem extends React.Component {
     render() {
         return (
             <div
-                className={'shopping-list-item'}
+                className={'search-item'}
             >
                 <Button
-                    className={'shopping-list-add-button'}
+                    className={'search-add-button'}
                     style={{
                         width: 30,
                         height: 30
