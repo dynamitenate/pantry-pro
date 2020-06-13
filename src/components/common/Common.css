@@ -39,4 +39,17 @@
 .scrollbox {
     overflow: auto;
     transition: box-shadow 0.1s ease;
+    border: 1px solid transparent;
+}
+.scrollbox-border-top {
+    border-top: 1px solid grey;
+}
+.scrollbox-border-bottom {
+    border-bottom: 1px solid grey;
+}
+.scrollbox-border-left {
+    border-left: 1px solid grey;
+}
+.scrollbox-border-right {
+    border-right: 1px solid grey;
 }

@@ -24,9 +24,10 @@ class ShoppingListItem extends React.Component {
             <div
                 className={'shopping-list-item'}
                 style={{
-                    display: 'flex',
-                    position: 'relative',
-                    padding: '10px 0px'
+                    height: 35,
+                    padding: 10,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden'
                 }}
                 onMouseEnter={() => this.setState({ hover: true })}
                 onMouseLeave={() => this.setState({ hover: false })}
@@ -36,7 +37,8 @@ class ShoppingListItem extends React.Component {
                     style={{
                         width: 30,
                         height: 30,
-                        marginRight: 10
+                        marginRight: 10,
+                        transform: 'translateY(-8px)'
                     }}
                     onClick={() => this.props.onCheckClick()}
                 >  
@@ -44,10 +46,11 @@ class ShoppingListItem extends React.Component {
                 <div
                     className={`shopping-list-item-content ${this.props.checked ? 'shopping-list-item-content-checked' : undefined}`}
                     style={{
-                        position: 'absolute',
-                        left: this.state.hover ? 30 : 0,
+                        display: 'inline-block',
                         paddingLeft: 10,
-                        minWidth: 30
+                        height: '100%',
+                        width: 'calc(100% - 10px)',
+                        transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
                     }}
                 >
                     {this.props.value}
