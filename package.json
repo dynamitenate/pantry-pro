@@ -4,7 +4,14 @@
   "main": "index.js",
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "10"
+          }
+        }
+      ],
       "@babel/preset-react"
     ]
   },
@@ -12,9 +19,7 @@
     "build": "webpack --progress --mode=development --config webpack.config.js",
     "build:prod": "webpack --progress --mode=production --config webpack.config.js",
     "start": "node server.js",
-    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js",
-    "deploy": "webpack --progress --mode=development --config webpack.config.js && firebase deploy",
-    "deploy:prod": "webpack --progress --mode=production --config webpack.config.js && firebase deploy"
+    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js"
   },
   "license": "ISC",
   "dependencies": {
