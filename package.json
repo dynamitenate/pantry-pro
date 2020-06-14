@@ -1,0 +1,16 @@
+{
+  "name": "pantry-pro",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynamitenate/pantrypro.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "pantry-pro",
+  "name": "pantry-pro-web",
   "version": "1.0.0",
   "main": "index.js",
   "babel": {
@@ -18,7 +18,6 @@
   "scripts": {
     "build": "webpack --progress --mode=development",
     "build:prod": "webpack --progress --mode=production",
-    "start": "node server.js",
     "watch": "webpack-dev-server --open --mode=development"
   },
   "license": "ISC",
