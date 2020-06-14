@@ -7,9 +7,9 @@ app.use('/spoonacular', require('./routes/spoonacular.js'));
 app.use('/data', require('./routes/data.js'));
 
 // Setup home directory
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/web/public'));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/dist/index.html');
+    res.sendFile(__dirname + '/web/public/index.html');
 });
 
 // Start server

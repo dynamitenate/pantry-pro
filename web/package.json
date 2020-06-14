@@ -16,10 +16,10 @@
     ]
   },
   "scripts": {
-    "build": "webpack --progress --mode=development --config webpack.config.js",
-    "build:prod": "webpack --progress --mode=production --config webpack.config.js",
+    "build": "webpack --progress --mode=development",
+    "build:prod": "webpack --progress --mode=production",
     "start": "node server.js",
-    "watch": "webpack-dev-server --open --mode=development --config webpack.config.js"
+    "watch": "webpack-dev-server --open --mode=development"
   },
   "license": "ISC",
   "dependencies": {

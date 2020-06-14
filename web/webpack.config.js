@@ -13,7 +13,7 @@ module.exports = (options) => {
         mode: isProduction ? 'production' : 'development',
         entry: __dirname + '/src/index.js',
         output: {
-            path: __dirname + '/dist',
+            path: __dirname + '/public',
             filename: 'bundle.js',
             publicPath: '/'
         },
