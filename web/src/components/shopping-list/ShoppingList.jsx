@@ -18,31 +18,29 @@ class ShoppingList extends React.Component {
 
     componentDidMount() {
         getShoppingListData()
-            .then(res => {
-                let items = res.json().map(item => item.product_name);
+            .then(data => {
+                let items = data.map(item => {
+                    return { value: item.product_name, checked: false }
+                });
                 this.setState({ items });
             });
     }
 
     handleAddButtonClick() {
-        addShoppingListData(this.state.input)
-            .then(res => {
-                this.setState(state => {
-                    let items = [...state.items, res.json()[0].product_name];
-                    return { input: '' , items };
-                });
-            });
         if (this.state.input) {
-            this.setState(state => {
-                let items = [
-                    ...state.items,
-                    {
-                        value: state.input,
-                        checked: false
-                    }
-                ];
-                return { input: "", items };
-            });
+            addShoppingListData(this.state.input)
+                .then(data => {
+                    this.setState(state => {
+                        let items = [
+                            ...state.items,
+                            {
+                                value: state.input,
+                                checked: false
+                            }
+                        ];
+                        return { input: "", items };
+                    });
+                });
         }
     }
 

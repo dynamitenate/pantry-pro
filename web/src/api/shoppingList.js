@@ -1,11 +1,9 @@
 export const getShoppingListData = async () => {
     console.log("Retrieving Shopping List...");
     let response = await fetch(window.location.origin + '/data/list')
-        .catch(err => {
-            console.log(`ERROR: ${err.response.data}`)
-        });
-    console.log(`Retrieved Shopping List with \"${response.json().length}\" items`);
-    return response;
+    let data = await response.json();
+    console.log(`Retrieved Shopping List with \"${data.length}\" items`);
+    return data;
 };
 
 export const addShoppingListData = async (input) => {
@@ -16,9 +14,8 @@ export const addShoppingListData = async (input) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ product_name: input })
-    }).catch(err => {
-        console.log(`ERROR: ${err.response.data}`)
     });
+    let data = await response.json();
     console.log(`Added \"${input}\" to Shopping List`);
-    return response;
+    return data;
 };
