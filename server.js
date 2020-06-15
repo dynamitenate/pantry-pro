@@ -12,9 +12,9 @@ app.use('/api/data', require('./routes/data.js'));
 
 // Setup home directory
 app.use(express.static(__dirname + '/web/public'));
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/web/public/index.html');
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/web/public/index.html');
+// });
 
 // Start server
 const port = process.env.PORT || 5000;
