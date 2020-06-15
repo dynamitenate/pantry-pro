@@ -1,6 +1,6 @@
 export const getShoppingListData = async () => {
     console.log("Retrieving Shopping List...");
-    let response = await fetch(window.location.origin + '/data/list')
+    let response = await fetch(window.location.origin + '/api/data/list')
     let data = await response.json();
     console.log(`Retrieved Shopping List with \"${data.length}\" items`);
     return data;
@@ -8,7 +8,7 @@ export const getShoppingListData = async () => {
 
 export const addShoppingListData = async (input) => {
     console.log(`Adding \"${input}\" to Shopping List...`);
-    let response = await fetch(window.location.origin + '/data/list', {
+    let response = await fetch(window.location.origin + '/api/data/list', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
