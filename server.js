@@ -1,3 +1,7 @@
+// Pull in dotenv environment vars
+require('dotenv').config();
+
+// Initialize Express app
 const express = require('express');
 const app = express();
 
