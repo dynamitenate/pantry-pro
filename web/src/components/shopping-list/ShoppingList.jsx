@@ -3,6 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
+import { getShoppingListData, addShoppingListData } from '../../api/shoppingList.js';
 import Scrollbox from '../common/Scrollbox.jsx';
 import './ShoppingList.css';
 
@@ -16,40 +17,30 @@ class ShoppingList extends React.Component {
     }
 
     componentDidMount() {
-        // fetch(window.location.origin + '/data/list')
-        //     .then(res => res.json())
-        //     .then(json => {
-        //         let names = json.map(item => item.product_name);
-        //         this.setState({ items: names });
-        //     });
+        getShoppingListData()
+            .then(data => {
+                let items = data.map(item => {
+                    return { value: item.product_name, checked: false }
+                });
+                this.setState({ items });
+            });
     }
 
     handleAddButtonClick() {
-        // fetch(window.location.origin + '/data/list', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({ product_name: this.state.input })
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.setState(state => {
-        //             let items = [...state.items, data[0].product_name];
-        //             return { input: '' , items };
-        //         });
-        //     })
         if (this.state.input) {
-            this.setState(state => {
-                let items = [
-                    ...state.items,
-                    {
-                        value: state.input,
-                        checked: false
-                    }
-                ];
-                return { input: "", items };
-            });
+            addShoppingListData(this.state.input)
+                .then(data => {
+                    this.setState(state => {
+                        let items = [
+                            ...state.items,
+                            {
+                                value: state.input,
+                                checked: false
+                            }
+                        ];
+                        return { input: "", items };
+                    });
+                });
         }
     }
 

@@ -13,7 +13,7 @@ module.exports = (options) => {
         mode: isProduction ? 'production' : 'development',
         entry: __dirname + '/src/index.js',
         output: {
-            path: __dirname + '/dist',
+            path: __dirname + '/public',
             filename: 'bundle.js',
             publicPath: '/'
         },
@@ -41,7 +41,14 @@ module.exports = (options) => {
         },
         devtool: isProduction ? undefined : 'source-map',
         devServer: {
-            historyApiFallback: true
+            historyApiFallback: true,
+            port: 8080,
+            proxy: {
+                '/api': {
+                    target: 'http://localhost:5000',
+                    secure: false
+                }
+            }
         },
         plugins: [
             new HtmlWebpackPlugin({
