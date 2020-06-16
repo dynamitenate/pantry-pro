@@ -4,7 +4,6 @@ import './Common.css';
 
 class Link extends React.Component {
     render() {
-        console.log(this.props.to);
         return (
             <DefaultLink
                 className={this.props.className ? `link ${this.props.className}` : 'link'}
