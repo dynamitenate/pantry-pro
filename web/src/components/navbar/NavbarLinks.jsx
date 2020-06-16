@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from '../common/Link.jsx';
 
 class NavbarLinks extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class NavbarLinks extends React.Component {
                     <Link
                         style={{
                             order: index,
-                            paddingLeft: 10
+                            marginLeft: 15
                         }}
                         to={link.route}
                     >
