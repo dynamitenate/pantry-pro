@@ -12,7 +12,9 @@ class NavbarLinks extends React.Component {
                     <Link
                         style={{
                             order: index,
-                            marginLeft: 15
+                            marginLeft: 15,
+                            fontWeight: 700,
+                            fontSize: 20
                         }}
                         to={link.route}
                     >
