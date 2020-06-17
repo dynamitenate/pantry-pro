@@ -48,7 +48,8 @@ class ShoppingListItem extends React.Component {
                     style={{
                         display: 'inline-block',
                         paddingLeft: 10,
-                        height: '100%',
+                        height: 35,
+                        lineHeight: '35px',
                         width: 'calc(100% - 10px)',
                         transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
                     }}
