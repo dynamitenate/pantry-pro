@@ -10,12 +10,12 @@ class Navbar extends React.Component {
                 className={'navbar'}
                 style={{ width: '100%' }}
             >
-                <div
+                <h1
                     className={'navbar-title'}
                     style={{ paddingTop: 10 }}
                 >
                     {"PantryPro"}
-                </div>
+                </h1>
                 <NavbarLinks
                     links={[
                         { route: ROUTES.LANDING, label: "Landing" },
