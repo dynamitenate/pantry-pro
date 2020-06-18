@@ -12,28 +12,38 @@
     border: 1px solid transparent;
     border-radius: 7px;
     padding: 5px 10px 5px 10px;
-    transition: 0.15s ease-in-out;
+    transition: 0.1s ease-in-out;
     cursor: pointer;
     outline: none;
 }
 .button:hover {
-    background-color: #adadad;
+    background-color: #efefef;
     box-shadow: 0 0 2px rgba(66, 66, 66, 0.2), 0 0 5px rgba(66, 66, 66, 0.5);
 }
 .button:active {
-    background-color: #999999;
+    background-color: #a7a7a7;
 }
 .input {
     background-color: transparent;
     border: 0;
-    border-bottom: 3px solid black;
+    border-radius: 10px;
     font-size: 16px;
     font-family: inherit;
+    font-weight: 500;
     padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     outline: none;
 }
+.input:hover {
+    background-color: #efefef;
+    transition: background-color 0.25s ease;
+}
 .input::placeholder {
-    color: #c1c1c1;
+    color: #a7a7a7;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
 }
 .scrollbox {
     overflow: auto;
