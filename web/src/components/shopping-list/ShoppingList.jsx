@@ -3,7 +3,7 @@ import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
-import { getShoppingListData, addShoppingListData } from '../../api/shoppingList.js';
+import { getShoppingListData, addShoppingListData, updateShoppingListData } from '../../api/shoppingList.js';
 import Scrollbox from '../common/Scrollbox.jsx';
 import './ShoppingList.css';
 
@@ -20,8 +20,13 @@ class ShoppingList extends React.Component {
         getShoppingListData()
             .then(data => {
                 let items = data.map(item => {
-                    return { value: item.product_name, checked: false }
+                    return { 
+                        id: item.id,
+                        value: item.product_name,
+                        checked: item.checked
+                    }
                 });
+                items.sort((a, b) => a.id - b.id);
                 this.setState({ items });
             });
     }
@@ -34,8 +39,9 @@ class ShoppingList extends React.Component {
                         let items = [
                             ...state.items,
                             {
-                                value: state.input,
-                                checked: false
+                                id: data.id,
+                                value: data.product_name,
+                                checked: data.checked
                             }
                         ];
                         return { input: "", items };
@@ -55,11 +61,19 @@ class ShoppingList extends React.Component {
         }
     }
 
-    handleItemCheckedOff(index) {
-        this.setState(state => {
-            state.items[index].checked = true;
-            return state;
-        });
+    handleItemCheckedOff(item) {
+        updateShoppingListData({
+            id: item.id,
+            value: item.value,
+            checked: true
+        })
+            .then(data => {
+                this.setState(state => {
+                    let index = state.items.findIndex(i => i.id === item.id);
+                    state.items[index].checked = true;
+                    return state;
+                });
+            });
     }
 
     render() {
@@ -113,7 +127,7 @@ class ShoppingList extends React.Component {
                         suppressInsetShadows
                     >
                         <div style={{ padding: '0px 10px' }}>
-                            {this.state.items.map((item, index) => <ShoppingListItem key={index} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(index)} />)}
+                            {this.state.items.map(item => <ShoppingListItem key={item.id} value={item.value} checked={item.checked} onCheckClick={() => this.handleItemCheckedOff(item)} />)}
                         </div>
                     </Scrollbox>
                 </div>
