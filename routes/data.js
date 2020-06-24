@@ -29,7 +29,6 @@ router.post('/list', (req, res) => {
         ])
         .then(data => {
             if (data.body[0]) {
-                console.log(data.body[0]);
                 res.json(data.body[0]);
                 console.log(`Added \"${data.body[0].product_name}\" to Shopping List`);
             }
