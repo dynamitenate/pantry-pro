@@ -32,7 +32,7 @@ export const updateShoppingListData = async (item) => {
     return data;
 }
 
-export const deleteShippingListData = async (id) => {
+export const deleteShoppingListData = async (id) => {
     let response = await fetch(window.location.origin + '/api/data/list', {
         method: 'DELETE',
         headers: {

@@ -1,5 +1,7 @@
 .shopping-list {
     text-align: initial;
+    height: inherit;
+    width: inherit;
 }
 .shopping-list-add-button {
     background-color: transparent;
@@ -26,18 +28,23 @@
 .shopping-list-item:hover {
     background-color: #efefef !important;
 }
-.shopping-list-item-check-button {
+.shopping-list-item-button {
     background-color: transparent;
-    background-image: url(../../assets/icons/done-black-48dp.svg);
     background-size: cover;
     border-radius: 50%;
     background-repeat: no-repeat;
 }
-.shopping-list-item-check-button:hover {
+.shopping-list-item-button-check {
+    background-image: url(../../assets/icons/done-black-48dp.svg);
+}
+.shopping-list-item-button-delete {
+    background-image: url(../../assets/icons/clear-black-48dp.svg);
+}
+.shopping-list-item-button:hover {
     background-color: rgba(111, 111, 111, 0.25);
     box-shadow: none;
 }
-.shopping-list-item-check-button:active {
+.shopping-list-item-button:active {
     background-color: rgba(111, 111, 111, 0.5);
 }
 .shopping-list-item-content {

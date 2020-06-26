@@ -33,7 +33,7 @@ class ShoppingListItem extends React.Component {
                 onMouseLeave={() => this.setState({ hover: false })}
             >
                 <Button
-                    className={'shopping-list-item-check-button'}
+                    className={'shopping-list-item-button shopping-list-item-button-check'}
                     style={{
                         width: 30,
                         height: 30,
@@ -41,6 +41,17 @@ class ShoppingListItem extends React.Component {
                         transform: 'translateY(-8px)'
                     }}
                     onClick={() => this.props.onCheckClick()}
+                >  
+                </Button>
+                <Button
+                    className={'shopping-list-item-button shopping-list-item-button-delete'}
+                    style={{
+                        width: 30,
+                        height: 30,
+                        marginRight: 10,
+                        transform: 'translateY(-8px)'
+                    }}
+                    onClick={() => this.props.onDeleteClick()}
                 >  
                 </Button>
                 <div
@@ -51,7 +62,7 @@ class ShoppingListItem extends React.Component {
                         height: 35,
                         lineHeight: '35px',
                         width: 'calc(100% - 10px)',
-                        transform: `translateX(${this.state.hover ? "0px" : "-40px"})`
+                        transform: `translateX(${this.state.hover ? "0px" : "-80px"})`
                     }}
                 >
                     {this.props.value}
