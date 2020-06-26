@@ -12,7 +12,6 @@ router.get('/list', (req, res) => {
         .select('id, product_name, checked')
         .then(data => {
             res.json(data.body);
-            console.log(`Retrieved Shopping List with \"${data.body.length}\" items`);
         })
         .catch(error => console.error('Error retreiveing shopping list items: ', error));
 });
@@ -30,7 +29,6 @@ router.post('/list', (req, res) => {
         .then(data => {
             if (data.body[0]) {
                 res.json(data.body[0]);
-                console.log(`Added \"${data.body[0].product_name}\" to Shopping List`);
             }
         })
         .catch(error => console.error('Error adding shopping list item: ', error));
@@ -49,9 +47,22 @@ router.put('/list', (req, res) => {
         })
         .then(data => {
             res.json(data.body);
-            console.log(`Updated item with id \"${data.body.id}\" to have properties \"${data.body}\" in Shopping List`);
         })
         .catch(error => console.error('Error updating shopping list item: ', error));
+});
+
+router.delete('/list', (req, res) => {
+    console.log(`Deleting item with id \"${req.body.id}\" from Shopping List...`);
+    supabase
+        .from('shopping_list')
+        .match({
+            'id': req.body.id
+        })
+        .delete()
+        .then(data => {
+            res.json(data.body);
+        })
+        .catch(error => console.error('Error deleting shopping list item: ', error));
 });
 
 module.exports = router;
