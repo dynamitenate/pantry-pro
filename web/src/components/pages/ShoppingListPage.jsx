@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../common/Card.jsx';
 import ShoppingList from '../shopping-list/ShoppingList.jsx';
 
 class ShoppingListPage extends React.Component {
@@ -10,13 +11,15 @@ class ShoppingListPage extends React.Component {
                     textAlign: 'center'
                 }}
             >
-                <ShoppingList
+                <Card
                     style={{
-                        width: 500,
-                        height: 500,
+                        width: 650,
+                        height: 650,
                         padding: '15px 0px'
-                    }}  
-                />
+                    }}
+                >
+                    <ShoppingList />
+                </Card>
             </div>
         );
     }

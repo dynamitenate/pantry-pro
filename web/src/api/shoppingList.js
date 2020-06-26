@@ -31,3 +31,17 @@ export const updateShoppingListData = async (item) => {
     let data = await response.json();
     return data;
 }
+
+export const deleteShoppingListData = async (id) => {
+    let response = await fetch(window.location.origin + '/api/data/list', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id: id
+        })
+    });
+    let data = await response.json();
+    return data;
+}
