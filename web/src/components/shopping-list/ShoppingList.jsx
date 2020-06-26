@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../common/Card.jsx';
 import ShoppingListItem from './ShoppingListItem.jsx';
 import Button from '../common/Button.jsx';
 import Input from '../common/Input.jsx';
@@ -78,7 +77,7 @@ class ShoppingList extends React.Component {
 
     render() {
         return (
-            <Card
+            <div
                 className={'shopping-list'}
                 style={this.props.style}
             >
@@ -108,8 +107,8 @@ class ShoppingList extends React.Component {
                         <Input
                             className={'shopping-list-input'}
                             style={{
+                                flexGrow: 1,
                                 height: 50,
-                                width: 420,
                                 marginLeft: 10
                             }}
                             value={this.state.input}
@@ -131,7 +130,7 @@ class ShoppingList extends React.Component {
                         </div>
                     </Scrollbox>
                 </div>
-            </Card>
+            </div>
         );
     }
 }
