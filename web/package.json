@@ -18,7 +18,8 @@
   "scripts": {
     "build": "webpack --progress --mode=development",
     "build:prod": "webpack --progress --mode=production",
-    "watch": "webpack-dev-server --open --mode=development"
+    "watch": "webpack-dev-server --open --mode=development",
+    "watch:debug": "webpack-dev-server --mode=development"
   },
   "license": "ISC",
   "dependencies": {
