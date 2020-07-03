@@ -22,7 +22,7 @@
     ],
     "compounds": [
         {
-            "name": "Debug",
+            "name": "Client/Server",
             "configurations": ["Server", "Client"]
         }
     ]
