@@ -14,7 +14,6 @@
     box-shadow: none;
 }
 .shopping-list-input {
-    background-color: #efefef;
     font-size: 20px;
 }
 .shopping-list-input::placeholder {

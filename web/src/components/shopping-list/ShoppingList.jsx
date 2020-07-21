@@ -112,7 +112,8 @@ class ShoppingList extends React.Component {
                             className={'shopping-list-add-button'}
                             style={{
                                 width: 50,
-                                height: 50
+                                height: 50,
+                                marginRight: 10
                             }}
                             onClick={() => this.handleAddButtonClick()}
                         >
@@ -121,8 +122,7 @@ class ShoppingList extends React.Component {
                             className={'shopping-list-input'}
                             style={{
                                 flexGrow: 1,
-                                height: 50,
-                                marginLeft: 10
+                                height: 50
                             }}
                             value={this.state.input}
                             placeholder={'Add item'}
