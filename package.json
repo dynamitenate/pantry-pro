@@ -4,6 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:web": "cd web && cd src && npm run watch:debug",
     "heroku-postbuild": "cd web && npm install && npm run build:prod"
   },
   "repository": {
